@@ -3,7 +3,20 @@
 <title>美妆达人直播榜 · 精确销售额（多日期）</title>
 <style>
 *{box-sizing:border-box}body{margin:0;padding:14px;background:#f5f6fa;color:#222;font-family:-apple-system,'PingFang SC','Microsoft YaHei',sans-serif}.wrap{max-width:1200px;margin:auto}h1{font-size:22px;margin:0 0 4px}.sub,.note{font-size:12px;color:#777;line-height:1.6}.cards{display:flex;gap:12px;flex-wrap:wrap;margin:12px 0}.card{flex:1;min-width:175px;background:#fff;border-radius:12px;padding:11px 14px;box-shadow:0 2px 8px #0000000d}.v{font-size:20px;font-weight:700;color:#2d6cdf}.l{font-size:12px;color:#888;margin-top:4px}.toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:14px 0}.btn,.datelabel select,.search{padding:7px 10px;border:1px solid #ddd;border-radius:8px;background:#fff;font-size:13px}.btn{cursor:pointer}.btn.active{background:#2d6cdf;color:#fff;border-color:#2d6cdf}.search{flex:1;min-width:160px;padding:8px 12px}.export{margin-left:auto}table{width:100%;table-layout:fixed;border-collapse:collapse;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 8px #0000000d}th,td{padding:7px 8px;text-align:left;font-size:12px;border-bottom:1px solid #f0f0f0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}th{background:#fafbfc;cursor:pointer}.c-num{text-align:right;font-variant-numeric:tabular-nums}.c-rank{color:#999;font-weight:600}.c-name{font-weight:600}.k-tag{display:inline-block;padding:2px 7px;border-radius:999px;font-size:11px;line-height:1.4;max-width:72px;overflow:hidden;text-overflow:ellipsis;vertical-align:middle}.k-tag.followed{color:#237804;background:#f6ffed;border:1px solid #b7eb8f}.k-tag.unfollowed{color:#cf1322;background:#fff1f0;border:1px solid #ffa39e;font-weight:700}.k-tag.unknown{color:#ad6800;background:#fffbe6;border:1px solid #ffe58f}.k-tag.none{color:#999;background:#f5f5f5;border:1px solid #eee}.hot{color:#e63946;font-weight:700}.c-product{vertical-align:middle;line-height:1.25}.p-name{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-weight:600}.p-amount{margin-top:2px;color:#e63946;font-size:11px;font-variant-numeric:tabular-nums}tbody tr[data-unfollowed="1"]{background:#fff7f6}tbody tr:hover{background:#f8faff}.loading{padding:36px;text-align:center;color:#777;background:#fff;border-radius:12px}
-</style></head><body><div class="wrap"><h1>美妆护肤 · 达人直播榜（精确销售额）</h1><div class="sub">当前查看：<span id="curDateLabel">2026-11-08</span> ｜ 蝉妈妈带货达人日销榜 TOP1500 ｜ 已排除品牌官方/品牌店铺自播，仅保留达人直播</div>
+
+#lock{position:fixed;inset:0;background:linear-gradient(160deg,#eef2fb 0%,#f7f8fc 60%,#fff 100%);display:flex;align-items:center;justify-content:center;z-index:9999}
+.lock-card{background:#fff;border-radius:16px;padding:30px 34px 26px;box-shadow:0 10px 44px rgba(45,108,223,.14);width:340px;max-width:88vw;text-align:center;border:1px solid #eef1f7}
+.lock-icon{font-size:26px;margin-bottom:10px;line-height:1}
+.lock-title{font-size:17px;font-weight:700;color:#1f2329;margin-bottom:6px;letter-spacing:.3px}
+.lock-sub{font-size:12px;color:#8a8f99;margin-bottom:18px;line-height:1.7}
+#pw{width:100%;padding:11px 12px;border:1px solid #dfe3ec;border-radius:9px;font-size:14px;outline:none;text-align:center;letter-spacing:3px;background:#fbfcfe;transition:.15s}
+#pw:focus{border-color:#2d6cdf;background:#fff;box-shadow:0 0 0 3px rgba(45,108,223,.12)}
+#pwBtn{margin-top:12px;width:100%;padding:10px;border:0;border-radius:9px;background:#2d6cdf;color:#fff;font-size:14px;font-weight:600;cursor:pointer;transition:.15s}
+#pwBtn:hover{background:#2559c4}
+#pwBtn:disabled{opacity:.55;cursor:default}
+#pwMsg{margin-top:10px;font-size:12px;color:#cf1322;min-height:16px;line-height:1.5}
+.lock-foot{margin-top:14px;font-size:11px;color:#b6bbc4}
+</style></head><body><div id="lock"><div class="lock-card"><div class="lock-icon">&#128274;</div><div class="lock-title">美妆达人直播榜</div><div class="lock-sub">该看板已加密，请输入访问密码</div><input id="pw" type="password" placeholder="访问密码" autocomplete="current-password" spellcheck="false"><button id="pwBtn">进入看板</button><div id="pwMsg"></div><div class="lock-foot">数据每日自动更新</div></div></div><div class="wrap"><h1>美妆护肤 · 达人直播榜（精确销售额）</h1><div class="sub">当前查看：<span id="curDateLabel">2026-11-08</span> ｜ 蝉妈妈带货达人日销榜 TOP1500 ｜ 已排除品牌官方/品牌店铺自播，仅保留达人直播</div>
 <div class="cards"><div class="card"><div class="v" id="c-total">-</div><div class="l">上榜达人(全部)</div></div><div class="card"><div class="v" id="c-daren">-</div><div class="l">达人直播(筛选后)</div></div><div class="card"><div class="v" id="c-amount">-</div><div class="l">达人直播总销售额</div></div><div class="card"><div class="v" id="c-active">-</div><div class="l">达人直播 · 活跃&gt;15%</div></div><div class="card"><div class="v" id="c-kolkoc-unfollowed">-</div><div class="l">活跃&gt;15% · 蝉圈圈未跟进</div></div></div>
 <div class="toolbar"><label class="datelabel">数据日期：<select id="dateSel"></select></label><button class="btn active" data-filter="daren">达人直播</button><button class="btn" data-filter="all">全部</button><button class="btn" data-filter="author">达人</button><button class="btn" data-filter="shop">店铺</button><button class="btn" data-filter="brand">品牌官方</button><button class="btn" data-filter="unfollowed15">活粉&gt;15%未跟进</button><label style="font-size:13px;color:#555"><input type="checkbox" id="activeOnly"> 仅看活跃&gt;15%</label><input class="search" id="search" placeholder="搜索达人名称..."><button class="btn export" id="export">导出CSV</button></div>
 <div id="loading" class="loading">正在读取数据...</div><table id="table" hidden><colgroup><col style="width:3%"><col style="width:12%"><col style="width:7%"><col style="width:5%"><col style="width:7%"><col style="width:5%"><col style="width:6%"><col style="width:6%"><col style="width:9%"><col style="width:9%"><col style="width:9%"><col style="width:9%"><col style="width:9%"></colgroup><thead><tr><th data-sort="rank">排名 ⇅</th><th data-sort="name">达人 ⇅</th><th data-sort="amount">精确销售额 ⇅</th><th data-sort="volume">销量 ⇅</th><th data-sort="trend">30天累计 ⇅</th><th data-sort="active">活跃占比 ⇅</th><th data-sort="kolkoc">蝉圈圈 ⇅</th><th data-sort="follower">粉丝数 ⇅</th><th>TOP1商品</th><th>TOP2商品</th><th>TOP3商品</th><th>TOP4商品</th><th>TOP5商品</th></tr></thead><tbody id="tbody"></tbody></table>
@@ -12,6 +25,80 @@
 const dates=["2026-07-06","2026-07-07","2026-07-08","2026-07-09","2026-07-10","2026-07-11","2026-07-12","2026-07-13","2026-07-14","2026-07-15","2026-07-16","2026-07-17","2026-07-18","2026-07-19","2026-07-20","2026-07-21","2026-07-22","2026-07-23","2026-07-27","2026-07-28","2026-07-29","2026-07-30","2026-07-31","2026-08-03","2026-08-09","2026-08-16","2026-08-17","2026-08-18","2026-08-19","2026-08-20","2026-08-21","2026-08-22","2026-08-23","2026-08-24","2026-08-25","2026-08-26","2026-08-27","2026-08-28","2026-08-29","2026-08-30","2026-08-31","2026-09-01","2026-09-02","2026-09-04","2026-09-06","2026-09-07","2026-09-08","2026-09-09","2026-09-10","2026-09-14","2026-09-15","2026-09-17","2026-09-19","2026-09-20","2026-09-21","2026-09-27","2026-09-28","2026-09-29","2026-10-07","2026-10-11","2026-10-12","2026-10-13","2026-10-14","2026-10-15","2026-10-18","2026-11-04","2026-11-05","2026-11-08"];let curDate='',allRows=[],curFilter='daren',curSort='rank',curDir=1;const tbody=document.getElementById('tbody'),dateSel=document.getElementById('dateSel'),loading=document.getElementById('loading');
 dates.forEach(d=>dateSel.add(new Option(d,d)));dateSel.value='2026-11-08';
 function apply(){const q=document.getElementById('search').value.trim().toLowerCase(),activeOnly=document.getElementById('activeOnly').checked;let rows=allRows.filter(tr=>{if(curFilter==='daren'&&tr.dataset.daren!=='1')return false;if(curFilter==='author'&&tr.dataset.type!=='达人')return false;if(curFilter==='shop'&&!tr.dataset.type.includes('店铺'))return false;if(curFilter==='brand'&&!tr.dataset.type.includes('品牌'))return false;if(curFilter==='unfollowed15'&&tr.dataset.unfollowed!=='1')return false;if(activeOnly&&parseFloat(tr.dataset.active)<=15)return false;return !q||tr.dataset.name.toLowerCase().includes(q)});rows.sort((a,b)=>{let x,y;if(['name','type','kolkoc'].includes(curSort)){x=a.dataset[curSort]||'';y=b.dataset[curSort]||'';return x.localeCompare(y,'zh')*curDir}return(parseFloat(a.dataset[curSort])-parseFloat(b.dataset[curSort]))*curDir});tbody.replaceChildren(...rows)}
-async function loadDate(d){curDate=d;loading.hidden=false;loading.textContent='正在读取 '+d+' 数据...';document.getElementById('table').hidden=true;try{const D=await fetch('data/'+d+'.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error(r.status);return r.json()});tbody.innerHTML=D.rows;allRows=[...tbody.querySelectorAll('tr')];for(const [id,v] of Object.entries({'c-total':D.total,'c-daren':D.daren,'c-amount':D.darenAmountText,'c-active':D.darenActive15,'c-kolkoc-unfollowed':D.kolkocUnfollowed15??'-'}))document.getElementById(id).textContent=v;document.getElementById('curDateLabel').textContent=d;loading.hidden=true;document.getElementById('table').hidden=false;apply()}catch(e){loading.textContent='数据加载失败，请刷新后重试（'+e.message+'）'}}
-dateSel.onchange=()=>{document.getElementById('search').value='';document.getElementById('activeOnly').checked=false;curFilter='daren';curSort='rank';curDir=1;document.querySelectorAll('.btn[data-filter]').forEach(x=>x.classList.toggle('active',x.dataset.filter==='daren'));loadDate(dateSel.value)};document.querySelectorAll('.btn[data-filter]').forEach(b=>b.onclick=()=>{document.querySelectorAll('.btn[data-filter]').forEach(x=>x.classList.remove('active'));b.classList.add('active');curFilter=b.dataset.filter;apply()});document.querySelectorAll('th[data-sort]').forEach(th=>th.onclick=()=>{const s=th.dataset.sort;curSort===s?curDir*=-1:(curSort=s,curDir=1);apply()});document.getElementById('search').oninput=apply;document.getElementById('activeOnly').onchange=apply;document.getElementById('export').onclick=()=>{let csv='排名,达人,精确销售额,销量,30天累计,活跃占比,蝉圈圈状态,粉丝数\n';[...tbody.querySelectorAll('tr')].forEach(tr=>{const d=tr.dataset;csv+=[d.rank,d.name,d.amount,d.volume,d.trend,d.active+'%',d.kolkoc||'-',d.follower].join(',')+'\n'});const a=document.createElement('a');a.href=URL.createObjectURL(new Blob(['\ufeff'+csv],{type:'text/csv'}));a.download='美妆达人直播榜_'+curDate.replaceAll('-','')+'.csv';a.click()};loadDate('2026-11-08');
+async function loadDate(d){curDate=d;loading.hidden=false;loading.textContent='正在读取 '+d+' 数据...';document.getElementById('table').hidden=true;try{const D=await fetchEnc(d);tbody.innerHTML=D.rows;allRows=[...tbody.querySelectorAll('tr')];for(const [id,v] of Object.entries({'c-total':D.total,'c-daren':D.daren,'c-amount':D.darenAmountText,'c-active':D.darenActive15,'c-kolkoc-unfollowed':D.kolkocUnfollowed15??'-'}))document.getElementById(id).textContent=v;document.getElementById('curDateLabel').textContent=d;loading.hidden=true;document.getElementById('table').hidden=false;apply()}catch(e){loading.textContent='数据加载失败，请刷新后重试（'+e.message+'）'}}
+dateSel.onchange=()=>{document.getElementById('search').value='';document.getElementById('activeOnly').checked=false;curFilter='daren';curSort='rank';curDir=1;document.querySelectorAll('.btn[data-filter]').forEach(x=>x.classList.toggle('active',x.dataset.filter==='daren'));loadDate(dateSel.value)};document.querySelectorAll('.btn[data-filter]').forEach(b=>b.onclick=()=>{document.querySelectorAll('.btn[data-filter]').forEach(x=>x.classList.remove('active'));b.classList.add('active');curFilter=b.dataset.filter;apply()});document.querySelectorAll('th[data-sort]').forEach(th=>th.onclick=()=>{const s=th.dataset.sort;curSort===s?curDir*=-1:(curSort=s,curDir=1);apply()});document.getElementById('search').oninput=apply;document.getElementById('activeOnly').onchange=apply;document.getElementById('export').onclick=()=>{let csv='排名,达人,精确销售额,销量,30天累计,活跃占比,蝉圈圈状态,粉丝数\n';[...tbody.querySelectorAll('tr')].forEach(tr=>{const d=tr.dataset;csv+=[d.rank,d.name,d.amount,d.volume,d.trend,d.active+'%',d.kolkoc||'-',d.follower].join(',')+'\n'});const a=document.createElement('a');a.href=URL.createObjectURL(new Blob(['\ufeff'+csv],{type:'text/csv'}));a.download='美妆达人直播榜_'+curDate.replaceAll('-','')+'.csv';a.click()};/*__INIT_DEFERRED__*/
+
+/* ================= 加密看板解锁逻辑（由 build_secure.js 注入） ================= */
+const _SALT='chanmama-beauty-v1-2026', _ITER=600000;
+let _KEY=null;
+const _lockEl=document.getElementById('lock'),_pwEl=document.getElementById('pw'),
+      _pwBtnEl=document.getElementById('pwBtn'),_pwMsgEl=document.getElementById('pwMsg');
+
+function _deriveKey(pw){
+  const enc=new TextEncoder();
+  return crypto.subtle.importKey('raw',enc.encode(pw),'PBKDF2',false,['deriveKey'])
+    .then(function(base){
+      return crypto.subtle.deriveKey(
+        {name:'PBKDF2',salt:enc.encode(_SALT),iterations:_ITER,hash:'SHA-256'},
+        base,{name:'AES-GCM',length:256},false,['decrypt']);
+    });
+}
+
+async function _decBuf(buf,key){
+  const iv=new Uint8Array(buf.slice(0,12));
+  const ct=new Uint8Array(buf.slice(12));
+  const pt=await crypto.subtle.decrypt({name:'AES-GCM',iv:iv},key,ct);   // 失败即密码错
+  // 用 Blob+pipeThrough 解压：比手动 writer.write 再 await close() 稳，后者在 readablestream 未被消费时会背压死锁
+  const stream=new Blob([pt]).stream().pipeThrough(new DecompressionStream('gzip'));
+  const out=await new Response(stream).arrayBuffer();
+  return JSON.parse(new TextDecoder().decode(out));
+}
+
+async function fetchEnc(d){
+  const r=await fetch('data/'+d+'.json.enc',{cache:'no-store'});
+  if(!r.ok) throw Error(r.status);
+  return _decBuf(await r.arrayBuffer(),_KEY);
+}
+
+async function _tryUnlock(pw){
+  _pwBtnEl.disabled=true;
+  _pwBtnEl.textContent='验证中...';
+  _pwMsgEl.textContent='';
+  try{
+    const key=await _deriveKey(pw);
+    const r=await fetch('data/_check.enc',{cache:'no-store'});
+    if(!r.ok) throw Error('校验文件缺失('+r.status+')');
+    await _decBuf(await r.arrayBuffer(),key);      // 解不开 = 密码错
+    _KEY=key;
+    try{ sessionStorage.setItem('cm_pw',pw); }catch(e){}
+    _lockEl.style.display='none';
+    _pwBtnEl.textContent='进入看板';
+    loadDate(dates[dates.length-1]);
+  }catch(e){
+    console.warn('[unlock] 失败原因:', e && e.name, e && e.message);
+    _KEY=null;
+    _pwMsgEl.textContent = String(e.message).indexOf('校验文件缺失')>=0
+      ? '看板文件异常：'+e.message
+      : '密码不正确，请重新输入';
+    _pwEl.value='';
+    _pwEl.focus();
+    _pwBtnEl.textContent='进入看板';
+  }finally{
+    _pwBtnEl.disabled=false;
+  }
+}
+
+_pwBtnEl.onclick=function(){ _tryUnlock(_pwEl.value.trim()); };
+_pwEl.onkeydown=function(e){ if(e.key==='Enter') _tryUnlock(_pwEl.value.trim()); };
+
+(function(){
+  if(!window.crypto||!crypto.subtle||typeof DecompressionStream==='undefined'){
+    _pwMsgEl.textContent='当前浏览器版本过低，请用新版 Chrome / Edge / QQ浏览器打开';
+    return;
+  }
+  let saved=null;
+  try{ saved=sessionStorage.getItem('cm_pw'); }catch(e){}
+  if(saved){ _tryUnlock(saved); } else { _pwEl.focus(); }
+})();
+/* ================= 解锁逻辑结束 ================= */
 </script></body></html>
