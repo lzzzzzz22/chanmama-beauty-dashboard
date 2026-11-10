@@ -66,7 +66,7 @@ async function _tryUnlock(pw){
   _pwMsgEl.textContent='';
   try{
     const key=await _deriveKey(pw);
-    const r=await fetch('data/_check.enc',{cache:'no-store'});
+    const r=await fetch('data/check.enc',{cache:'no-store'});
     if(!r.ok) throw Error('校验文件缺失('+r.status+')');
     await _decBuf(await r.arrayBuffer(),key);      // 解不开 = 密码错
     _KEY=key;
